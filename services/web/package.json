@@ -1,0 +1,21 @@
+{
+  "name": "MultipleContainerDemo",
+  "version": "1.0.0",
+  "description": "Multiple Container Demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "AJEERKHAN MEERANKANI",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "curl": "^0.1.4",
+    "express": "^4.16.2",
+    "uuid": "^3.1.0",
+    "mongoose": "^5.4.20",
+    "dotenv": "^7.0.0"
+  }
+}
