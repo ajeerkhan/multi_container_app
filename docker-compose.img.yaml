@@ -1,0 +1,14 @@
+version: "2.3"
+services:
+  web:
+    extends:
+      file: docker-compose.yaml
+      service: web
+    image: ${REPO_HOST}/multi_container_app:${IMAGE_TAG}
+  mongodb:
+    extends:
+      file: docker-compose.yaml
+      service: mongodb
+networks:
+  multicontainer_network:
+    driver: bridge

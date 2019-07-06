@@ -1,0 +1,27 @@
+version: "3"
+services:
+  web:
+    image: ajeerkhan/multi_container_app:develop
+    container_name: web
+    expose: 
+      - "80"
+    ports:
+      - "3000:80"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    depends_on:
+      - "mongodb"  
+  #redisdb:
+  #  image: redis:alpine
+  #  container_name: redisdb
+  #  ports: ["6379"]
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports: 
+      - "27017:27017"

@@ -1,0 +1,39 @@
+version: "2"
+services:
+  web:
+    container_name: web
+    restart: always
+    environment:
+      DEBUG_PORT: '0.0.0.0:28283'
+      LOG_LEVEL: info
+    ports:
+      - '8080:8080'
+      - '28283:28283'
+    #extends:
+    #  file: docker-compose.base.yaml
+    #  service: web
+    build:
+      context: ./services/web
+      args:
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        NO_PROXY: ${NO_PROXY}
+        NODE_ENV: development
+    command: node --inspect=0.0.0.0:28283 index.js
+    links:
+      - mongodb
+    #volumes:
+    #  - ./services/web/src:/usr/src/app/src
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    #extends:
+    #  file: docker-compose.base.yaml
+    #  service: mongodb
+#networks:
+#  multicontainer_network:
+#    driver: bridge
