@@ -1,31 +1,29 @@
-version: "2.3"
+version: "2"
 services:
   web:
     container_name: web
+    restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: example
+      #DB_DATABASE: db
       DB_SERVER: mongodb:27017
-      DB_DATABASE: db
+      PORT: 8080
     ports:
       - "8080:8080"
-    networks:
-      - multicontainer_network  
+    #networks:
+    #  - multicontainer_network  
     #depends_on:
-    #links:  
     #  - "mongodb"
   mongodb:
     container_name: mongodb
     image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+    #restart: always
+    #environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: example
     ports:
       - "27017:27017"
-    networks:
-      - multicontainer_network
-    volumes:
-      - data-volume:/data/db
-volumes:
-  data-volume:
+    #networks:
+    #  - multicontainer_network
+    

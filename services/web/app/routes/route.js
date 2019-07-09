@@ -15,7 +15,7 @@ var appRouter = function(app) {
         res.send(doc);
       }).catch(err => {
         console.error(err)
-        res.status(400).send(error);
+        res.status(400).send(err);
       })
     });
 
@@ -25,7 +25,7 @@ var appRouter = function(app) {
             res.send(doc);
           }).catch(err => {
             console.error(err)
-            res.status(400).send(error);
+            res.status(400).send(err);
           })
         });
 

@@ -6,6 +6,7 @@ services:
     environment:
       DEBUG_PORT: '0.0.0.0:28283'
       LOG_LEVEL: info
+      PORT: 8080
     ports:
       - '8080:8080'
       - '28283:28283'

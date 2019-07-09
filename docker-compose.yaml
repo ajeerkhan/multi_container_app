@@ -1,4 +1,4 @@
-version: "2.3"
+version: "2"
 services:
   web:
     container_name: web
@@ -18,12 +18,14 @@ services:
         NO_PROXY: ${NO_PROXY}
         NODE_ENV: development
     command: node --inspect=0.0.0.0:28283 index.js
-    volumes:
-      - ./services/web/src:/usr/src/app/src
+    links:
+      - mongodb
   mongodb:
     extends:
       file: docker-compose.base.yaml
       service: mongodb
-networks:
-  multicontainer_network:
-    driver: bridge
+    volumes:
+      - ./data:/data/db
+#networks:
+#  multicontainer_network:
+#    driver: bridge
