@@ -16,7 +16,8 @@ services:
         HTTP_PROXY: ${HTTP_PROXY}
         HTTPS_PROXY: ${HTTPS_PROXY}
         NO_PROXY: ${NO_PROXY}
-        NODE_ENV: development
+        NODE_ENV: "${MODE}"
+        REPOSITORY_SERVER: ${REPOSITORY_SERVER}
     command: node --inspect=0.0.0.0:28283 index.js
     links:
       - mongodb
@@ -26,6 +27,6 @@ services:
       service: mongodb
     volumes:
       - ./data:/data/db
-#networks:
-#  multicontainer_network:
-#    driver: bridge
+networks:
+  multicontainer_network:
+    driver: bridge

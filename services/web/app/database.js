@@ -18,7 +18,6 @@ _connect() {
    const options = {
     useNewUrlParser: true,
    }
-     console.log(`Envionment variables are => ${JSON.stringify(process.env)}`);
      mongoose.connect(conString, options)
        .then(() => {
          this._opened=true;

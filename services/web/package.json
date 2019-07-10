@@ -1,7 +1,7 @@
 {
   "name": "MultipleContainerDemo",
   "version": "1.0.0",
-  "description": "Multiple Container Demo",
+  "description": "Docker compose demo with multiple containers.",
   "main": "index.js",
   "scripts": {
     "dev": "node index.js",
